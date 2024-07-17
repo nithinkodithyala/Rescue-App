@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
+const path=require("path");
+const _dirname=path.dirname("");
+const buildpath=path.join(_dirname,"../client/build")
+app.use(express.static(buildpath));
 app.use(
   cors({
     origin: ["http://localhost:3000"],
